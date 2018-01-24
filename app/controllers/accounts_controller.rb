@@ -1,5 +1,7 @@
 class AccountsController < ApplicationController
 
+  before_action :check_if_logged_in
+
   def home
   end
 
@@ -10,13 +12,7 @@ class AccountsController < ApplicationController
     @account = Account.new
   end
 
-  def create
-    user = User.find_by( id: params[:user_id] )
-    account = Account.create account_params
-        redirect_to @current_user
 
-
-  end
 
   # READ
 
@@ -35,6 +31,21 @@ class AccountsController < ApplicationController
     @account = Account.find params[:id]
   end
 
+
+  def create
+    user = User.find_by( id: params[:user_id] )
+    account = Account.new account_params
+
+    characters = ('a'..'z').to_a + (0..9).to_a + (0..9).to_a + (0..9).to_a
+    char = characters.sample 10
+    account.accountnumber = char.join
+    account.user = @current_user
+    account.save 
+    redirect_to @current_user
+
+
+  end
+
   # def update
   #   account = Account.find params[:id]
   #   account.update account_params
@@ -51,7 +62,7 @@ class AccountsController < ApplicationController
   # "strong params" for the work form submit - only let through the fields
   # which we expect (i.e. the table fields the user is allowed to edit)
   def account_params
-    params.require(:account).permit( :balance, :account_type )
+    params.require(:account).permit( :accountnumber, :user_id, :balance, :account_type  )
   end
 
 

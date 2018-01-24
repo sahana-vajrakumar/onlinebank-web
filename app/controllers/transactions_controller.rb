@@ -27,6 +27,7 @@ class TransactionsController < ApplicationController
         redirect_to root_path unless account.user = @current_user
 
         transaction = Transaction.create transaction_params
+      
         if transaction.persisted?
            # transaction[:to_account_id].increment!('balance', transaction[:ammount])
 
