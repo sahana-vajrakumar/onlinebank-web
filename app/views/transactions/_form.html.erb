@@ -1,5 +1,25 @@
-<%= form_for @transaction do |f| %>
+<% if flash[:errors] %>
+  <strong>Please correct the following errors:</strong>
+  <ol>
+  <% flash[:errors].each do |e| %>
+    <li><%= e %></li>
+  <% end %>
+  </ol>
+<% end %>
 
+<%= form_for [@account, @transaction] do |f| %>
+
+
+
+<fieldset>
+  <%= f.label :from_account_id %>
+  <%= f.select :from_account_id, @current_user.accounts.map { |a| [a.accountnumber, a.id]  }, selected: @account.id, include_blank: true %>
+</fieldset>
+
+<fieldset>
+  <%= f.label :to_account_id %>
+  <%= f.select :to_account_id, Account.includes(:user).order("users.name").map { |a| ["#{ a.user.name}: #{a.accountnumber}", a.id]  }, include_blank: true %>
+</fieldset>
 
 
 <fieldset>
@@ -8,15 +28,9 @@
 </fieldset>
 
 <fieldset>
-  <%= f.label :from_account_id %>
-  <%= f.text_field :from_account_id %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
 </fieldset>
-
-<fieldset>
-  <%= f.label :to_account_id %>
-  <%= f.text_field :to_account_id %>
-</fieldset>
-
 
 
 

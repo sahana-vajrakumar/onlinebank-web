@@ -1,13 +1,19 @@
 <br>
 <hr>
+<h4>Account Information</h4>
+<hr>
 <div class="col-xs-12 col-md-8">
 <p class="bg-danger">Account number:<%= @account.accountnumber %></p>
 <p class="bg-danger">Account Type: <%= @account.account_type %></p>
 <p class="bg-danger">Current Balance: <%= @account.balance %></p>
 
 <br>
+<%= link_to 'Transfer Funds', new_account_transaction_path( @account ) %>
 <hr>
-<h4>From Transactions: </h4>
+<h4>Transaction History</h4>
+
+<hr>
+<h5>From Transactions: </h5>
 
 <% @account.from_transactions.each do |transaction| %>
 
@@ -18,7 +24,7 @@
 
 <br>
 <hr>
-<h4>To Transactions: </h4>
+<h5>To Transactions: </h5>
 
 <% @account.to_transactions.each do |transaction| %>
 
@@ -32,6 +38,6 @@
 
 
 
-<%= link_to 'Create New Account', "/accounts/new" %>
-|
-<%= link_to 'Delete', account_path , method: 'delete' %>
+
+
+<%= link_to 'Delete Account', account_path , method: 'delete' %>

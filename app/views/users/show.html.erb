@@ -1,13 +1,18 @@
+<hr>
 
 
-
-<h2><em><%= @user.name %></em></h2>
-
+<h4>User Name: <%= @user.name %></h4>
+<hr>
 <p><strong>Accounts</strong>:</p>
+
+
 <ul>
   <% @user.accounts.each do |account| %>
     <li>
       <%= link_to account.accountnumber, account %>
     </li>
+
   <% end %>
+  <hr>
+  <%= link_to 'Create New Account', new_account_path( @account ) %>
 </ul>

@@ -11,9 +11,11 @@ class AccountsController < ApplicationController
   end
 
   def create
-    # form submits here
-    Account.create params[:id]
-    redirect_to accounts_path
+    user = User.find_by( id: params[:user_id] )
+    account = Account.create account_params
+        redirect_to @current_user
+
+
   end
 
   # READ
@@ -24,7 +26,6 @@ class AccountsController < ApplicationController
 
   def show
     @account = Account.find params[:id]
-
   end
 
 
@@ -34,11 +35,11 @@ class AccountsController < ApplicationController
     @account = Account.find params[:id]
   end
 
-  def update
-    account = Account.find params[:id]
-    account.update account_params
-    redirect_to account
-  end
+  # def update
+  #   account = Account.find params[:id]
+  #   account.update account_params
+  #   redirect_to account
+  # end
 
   def destroy
     Account.destroy params[:id]
@@ -49,9 +50,9 @@ class AccountsController < ApplicationController
 
   # "strong params" for the work form submit - only let through the fields
   # which we expect (i.e. the table fields the user is allowed to edit)
-  # def account_params
-  #   params.require(:work).permit( :title, :year, :medium, :style, :image, :artist_id )
-  # end
+  def account_params
+    params.require(:account).permit( :balance, :account_type )
+  end
 
 
 end

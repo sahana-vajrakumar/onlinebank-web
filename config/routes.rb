@@ -6,8 +6,11 @@ Rails.application.routes.draw do
  delete '/login' => 'session#destroy'
 
  resources :users
+  
 
-  resources :accounts
 
-  resources :transactions
+  resources :accounts do
+    resources :transactions
+  end
+
 end
