@@ -1,32 +1,37 @@
+<br>
+<hr>
+<div class="col-xs-12 col-md-8">
+<p class="bg-danger">Account number:<%= @account.accountnumber %></p>
+<p class="bg-danger">Account Type: <%= @account.account_type %></p>
+<p class="bg-danger">Current Balance: <%= @account.balance %></p>
 
-<h3><em>Account number:<%= @account.accountnumber %></em></h3>
-<h3>Account Type: <%= @account.account_type %></h3>
-<h3>Current Balance: <%= @account.balance %></h3>
+<br>
+<hr>
 <h4>From Transactions: </h4>
 
 <% @account.from_transactions.each do |transaction| %>
 
 <li>
-  <p>Transaction Ammount: <%= transaction.ammount %> ,  Description: <%= transaction.description %> </p>
+  <p class="bg-info">Transaction Ammount: <%= transaction.ammount %> ,  Description: <%= transaction.description %> </p>
 </li>
     <% end %>
 
-
+<br>
+<hr>
 <h4>To Transactions: </h4>
 
 <% @account.to_transactions.each do |transaction| %>
 
 <li>
-  <p>Transaction Ammount: <%= transaction.ammount %> ,  Description: <%= transaction.description %> </p>
+  <p class="bg-primary">Transaction Ammount: <%= transaction.ammount %> ,  Description: <%= transaction.description %> </p>
 </li>
     <% end %>
+</div>
 
 
-<h3>
-  <%= link_to @account.account_type, @account.user %>
-</h3>
 
 
-<%= link_to 'Create New Account', "/accounts/#{ @account.id }/new" %>
+
+<%= link_to 'Create New Account', "/accounts/new" %>
 |
-<%= link_to 'Delete', "/accounts/#{ @account.id }/delete" %>
+<%= link_to 'Delete', account_path , method: 'delete' %>

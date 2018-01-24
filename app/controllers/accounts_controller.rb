@@ -12,7 +12,7 @@ class AccountsController < ApplicationController
 
   def create
     # form submits here
-    Account.create account_params
+    Account.create params[:id]
     redirect_to accounts_path
   end
 
@@ -24,7 +24,7 @@ class AccountsController < ApplicationController
 
   def show
     @account = Account.find params[:id]
-    
+
   end
 
 
