@@ -1,0 +1,14 @@
+<%= form_for @account do |f| %>
+  <fieldset>
+    <%= f.label :balance %>
+    <%= f.text_field :balance %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :account_type %>
+    <%= f.text_field :account_type %>
+  </fieldset>
+
+  <%= f.submit %>
+
+<% end %>

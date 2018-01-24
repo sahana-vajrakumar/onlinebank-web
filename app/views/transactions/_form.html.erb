@@ -1,0 +1,26 @@
+<%= form_for @transaction do |f| %>
+
+
+
+<fieldset>
+  <%= f.label :ammount %>
+  <%= f.text_field :ammount %>
+</fieldset>
+
+<fieldset>
+  <%= f.label :from_account_id %>
+  <%= f.text_field :from_account_id %>
+</fieldset>
+
+<fieldset>
+  <%= f.label :to_account_id %>
+  <%= f.text_field :to_account_id %>
+</fieldset>
+
+
+
+
+
+  <%= f.submit %>
+
+<% end %>

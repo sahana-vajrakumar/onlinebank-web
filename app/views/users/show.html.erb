@@ -1,0 +1,13 @@
+
+
+
+<h2><em><%= @user.name %></em></h2>
+
+<p><strong>Accounts</strong>:</p>
+<ul>
+  <% @user.accounts.each do |account| %>
+    <li>
+      <%= link_to account.accountnumber, account %>
+    </li>
+  <% end %>
+</ul>

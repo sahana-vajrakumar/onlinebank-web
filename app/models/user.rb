@@ -8,4 +8,6 @@ class User < ApplicationRecord
     self.from_transactions + self.to_transactions
   end
 
+  has_secure_password
+
 end

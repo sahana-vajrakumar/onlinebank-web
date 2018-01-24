@@ -1,0 +1,15 @@
+<h2>Here is your Transactions</h2>
+
+<h2>All Transactions</h2>
+
+<ul>
+  <% @transactions.each do |transaction| %>
+
+    <li>
+      <em><%= link_to transaction.ammount, transaction_path( transaction ) %></em>
+
+      , <%= transaction.description %>
+    </li>
+
+  <% end %>
+</ul>

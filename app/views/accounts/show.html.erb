@@ -1,0 +1,32 @@
+
+<h3><em>Account number:<%= @account.accountnumber %></em></h3>
+<h3>Account Type: <%= @account.account_type %></h3>
+<h3>Current Balance: <%= @account.balance %></h3>
+<h4>From Transactions: </h4>
+
+<% @account.from_transactions.each do |transaction| %>
+
+<li>
+  <p>Transaction Ammount: <%= transaction.ammount %> ,  Description: <%= transaction.description %> </p>
+</li>
+    <% end %>
+
+
+<h4>To Transactions: </h4>
+
+<% @account.to_transactions.each do |transaction| %>
+
+<li>
+  <p>Transaction Ammount: <%= transaction.ammount %> ,  Description: <%= transaction.description %> </p>
+</li>
+    <% end %>
+
+
+<h3>
+  <%= link_to @account.account_type, @account.user %>
+</h3>
+
+
+<%= link_to 'Create New Account', "/accounts/#{ @account.id }/new" %>
+|
+<%= link_to 'Delete', "/accounts/#{ @account.id }/delete" %>

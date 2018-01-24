@@ -9,12 +9,12 @@ puts "Created #{  User.all.length } users."
 
 Account.destroy_all
 
-a1 = Account.create balance: '100' , account_type: 'check'
-a2 = Account.create balance: '200' , account_type: 'savings'
-a3 = Account.create balance: '300' , account_type: 'credit'
-a4 = Account.create balance: '500' , account_type: 'credit'
-a5 = Account.create balance: '600' , account_type: 'check'
-a6 = Account.create balance: '700' , account_type: 'savings'
+a1 = Account.create balance: '100' , account_type: 'check' , accountnumber: 'b1023j34'
+a2 = Account.create balance: '200' , account_type: 'savings' , accountnumber: 'h45kn545'
+a3 = Account.create balance: '300' , account_type: 'credit' , accountnumber: 'b434k434'
+a4 = Account.create balance: '500' , account_type: 'credit' , accountnumber: 'ke32434k'
+a5 = Account.create balance: '600' , account_type: 'check' , accountnumber: 'i434j545'
+a6 = Account.create balance: '700' , account_type: 'savings' , accountnumber: 'j4554k54'
 
 # binding.pry
 
