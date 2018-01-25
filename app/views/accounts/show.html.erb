@@ -1,5 +1,9 @@
 <br>
 <hr>
+
+
+
+</div>
 <h4>Account Information</h4>
 <hr>
 <div class="col-xs-12 col-md-8">
@@ -15,6 +19,8 @@
 
 <hr>
 <h4>Transaction History</h4>
+<%= line_chart User.group_by_day(:created_at).count %>
+
 
 <hr>
 <h5>From Transactions: </h5>
