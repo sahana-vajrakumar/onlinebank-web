@@ -9,12 +9,12 @@ puts "Created #{  User.all.length } users."
 
 Account.destroy_all
 
-a1 = Account.create balance: '100' , account_type: 'check' , accountnumber: 'b1023j34'
-a2 = Account.create balance: '200' , account_type: 'savings' , accountnumber: 'h45kn545'
-a3 = Account.create balance: '300' , account_type: 'credit' , accountnumber: 'b434k434'
-a4 = Account.create balance: '500' , account_type: 'credit' , accountnumber: 'ke32434k'
-a5 = Account.create balance: '600' , account_type: 'check' , accountnumber: 'i434j545'
-a6 = Account.create balance: '700' , account_type: 'savings' , accountnumber: 'j4554k54'
+a1 = Account.create balance: 100.11 , account_type: 'check' , accountnumber: 'b1023j34', date_opened: '12/01/2012'
+a2 = Account.create balance: 200.22 , account_type: 'savings' , accountnumber: 'h45kn545', date_opened: '05/12/2005'
+a3 = Account.create balance: 300.33 , account_type: 'credit' , accountnumber: 'b434k434', date_opened: '02/05/2002'
+a4 = Account.create balance: 500.55 , account_type: 'credit' , accountnumber: 'ke32434k', date_opened: '03/01/2000'
+a5 = Account.create balance: 600.66 , account_type: 'check' , accountnumber: 'i434j545', date_opened: '01/01/2000'
+a6 = Account.create balance: 700.77 , account_type: 'savings' , accountnumber: 'j4554k54' , date_opened: '08/11/2001'
 
 # binding.pry
 

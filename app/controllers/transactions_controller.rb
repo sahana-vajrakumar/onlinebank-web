@@ -13,6 +13,13 @@ class TransactionsController < ApplicationController
   def new
     @transaction = Transaction.new
     @account = Account.find params[:account_id]
+
+    # if params[:type] == 'from'
+    #
+    # else
+    #   # assume it's "to"
+    # end
+    #
   end
 
 
@@ -27,9 +34,14 @@ class TransactionsController < ApplicationController
         redirect_to root_path unless account.user = @current_user
 
         transaction = Transaction.create transaction_params
-      
+
         if transaction.persisted?
-           # transaction[:to_account_id].increment!('balance', transaction[:ammount])
+
+          transaction.from_account.decrement!('balance' , transaction[:ammount])
+          transaction.to_account.increment!('balance' , transaction[:ammount])
+
+
+           # raise 'hell'
 
           # add/subtract the amount FROM the from_account_id, and ADD it to
           # the to_account_id
@@ -49,15 +61,12 @@ class TransactionsController < ApplicationController
     end
 
 
-
-
-
 private
 
 # "strong params" for the work form submit - only let through the fields
 # which we expect (i.e. the table fields the user is allowed to edit)
 def transaction_params
-  params.require(:transaction).permit( :ammount, :from_account_id, :to_account_id )
+  params.require(:transaction).permit( :ammount, :from_account_id, :to_account_id, :description )
 end
 
 

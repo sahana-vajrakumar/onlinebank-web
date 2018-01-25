@@ -6,9 +6,13 @@
 <p class="bg-danger">Account number:<%= @account.accountnumber %></p>
 <p class="bg-danger">Account Type: <%= @account.account_type %></p>
 <p class="bg-danger">Current Balance: <%= @account.balance %></p>
+<p class="bg-danger">Account Created on : <%= @account.date_opened %></p>
 
 <br>
-<%= link_to 'Transfer Funds', new_account_transaction_path( @account ) %>
+<%= link_to 'Withdraw Funds', new_account_transaction_path( @account, type: :from ) %>
+
+<%= link_to 'Desposit Funds', new_account_transaction_path( @account, type: :to ) %>
+
 <hr>
 <h4>Transaction History</h4>
 

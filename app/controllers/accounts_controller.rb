@@ -35,12 +35,12 @@ class AccountsController < ApplicationController
   def create
     user = User.find_by( id: params[:user_id] )
     account = Account.new account_params
-
+    account.date_opened = Date.today
     characters = ('a'..'z').to_a + (0..9).to_a + (0..9).to_a + (0..9).to_a
     char = characters.sample 10
     account.accountnumber = char.join
     account.user = @current_user
-    account.save 
+    account.save
     redirect_to @current_user
 
 

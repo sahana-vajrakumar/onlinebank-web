@@ -13,12 +13,16 @@
 
 <fieldset>
   <%= f.label :from_account_id %>
-  <%= f.select :from_account_id, @current_user.accounts.map { |a| [a.accountnumber, a.id]  }, selected: @account.id, include_blank: true %>
+  <%= f.select :from_account_id,
+      @current_user.accounts.map { |a| [a.accountnumber, a.id]  },
+      selected: ( params[:type] == 'from' ? @account.id : nil ),
+      include_blank: true
+  %>
 </fieldset>
 
 <fieldset>
   <%= f.label :to_account_id %>
-  <%= f.select :to_account_id, Account.includes(:user).order("users.name").map { |a| ["#{ a.user.name}: #{a.accountnumber}", a.id]  }, include_blank: true %>
+  <%= f.select :to_account_id, Account.includes(:user).order("users.name").map { |a| ["#{ a.user.name}: #{a.accountnumber}", a.id]  }, selected: ( params[:type] == 'to' ? @account.id : nil ), include_blank: true %>
 </fieldset>
 
 
