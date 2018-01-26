@@ -48,13 +48,13 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
+gem 'chartkick'
 gem 'pry-rails'
 gem 'annotate'
 gem 'jquery-rails'
 gem 'faker'
 gem 'cloudinary'
-gem 'bcrypt-ruby'
+
 
 
 

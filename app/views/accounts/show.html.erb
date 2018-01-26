@@ -3,6 +3,7 @@
 
 
 
+<%#= bar_chart @account.balance %>
 </div>
 <h4>Account Information</h4>
 <hr>
@@ -27,10 +28,13 @@
 
 <% @account.from_transactions.each do |transaction| %>
 
+
 <li>
   <p class="bg-info">Transaction Ammount: <%= transaction.ammount %> ,  Description: <%= transaction.description %> </p>
 </li>
     <% end %>
+    <hr>
+    <%= bar_chart @account.from_transactions.group(:ammount).count %>
 
 <br>
 <hr>
@@ -42,6 +46,8 @@
   <p class="bg-primary">Transaction Ammount: <%= transaction.ammount %> ,  Description: <%= transaction.description %> </p>
 </li>
     <% end %>
+    <hr>
+    <%= bar_chart @account.to_transactions.group(:ammount).count %>
 </div>
 
 

@@ -41,7 +41,7 @@ class TransactionsController < ApplicationController
           transaction.to_account.increment!('balance' , transaction[:ammount])
 
 
-           raise 'hell'
+           # raise 'hell'
 
           # add/subtract the amount FROM the from_account_id, and ADD it to
           # the to_account_id
