@@ -30,7 +30,7 @@
 
 
 <li>
-  <p class="bg-info">Transaction Ammount: <%= transaction.ammount %> ,  Description: <%= transaction.description %> </p>
+  <p class="bg-info"> <%= transaction.date_opened %> Transaction Ammount: <%= transaction.ammount %> ,  Description: <%= transaction.description %> </p>
 </li>
     <% end %>
     <hr>
@@ -43,7 +43,7 @@
 <% @account.to_transactions.each do |transaction| %>
 
 <li>
-  <p class="bg-primary">Transaction Ammount: <%= transaction.ammount %> ,  Description: <%= transaction.description %> </p>
+  <p class="bg-primary"> <%= transaction.date_opened %> Transaction Ammount: <%= transaction.ammount %> ,  Description: <%= transaction.description %> </p>
 </li>
     <% end %>
     <hr>

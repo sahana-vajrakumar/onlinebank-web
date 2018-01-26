@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one :customer
   has_many :accounts
   has_many :from_transactions, through: :accounts
   has_many :to_transactions, through: :accounts

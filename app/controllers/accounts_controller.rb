@@ -22,7 +22,7 @@ class AccountsController < ApplicationController
 
   def show
     @account = Account.find params[:id]
-    
+
   end
 
 
@@ -36,7 +36,7 @@ class AccountsController < ApplicationController
   def create
     user = User.find_by( id: params[:user_id] )
     account = Account.new account_params
-    account.date_opened = Date.today
+    account.date_opened = DateTime.now
     characters = ('a'..'z').to_a + (0..9).to_a + (0..9).to_a + (0..9).to_a
     char = characters.sample 10
     account.accountnumber = char.join

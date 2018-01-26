@@ -34,11 +34,22 @@ class TransactionsController < ApplicationController
         redirect_to root_path unless account.user = @current_user
 
         transaction = Transaction.create transaction_params
+        transaction.date_opened = Date.today
+      
+
+
 
         if transaction.persisted?
 
+
+
+
           transaction.from_account.decrement!('balance' , transaction[:ammount])
           transaction.to_account.increment!('balance' , transaction[:ammount])
+
+
+
+
 
 
            # raise 'hell'
@@ -48,6 +59,7 @@ class TransactionsController < ApplicationController
           # transaction.from_account.update balance:
 
           redirect_to account
+
         else
           # validation error?
           flash[:errors] = transaction.errors.full_messages
@@ -57,6 +69,7 @@ class TransactionsController < ApplicationController
         # account not found
         redirect_to @current_user
       end
+
 
     end
 
