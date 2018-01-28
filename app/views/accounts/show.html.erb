@@ -66,7 +66,7 @@
     <hr>
 
 
-    <%= area_chart @account.from_transactions.group(:date_opened).maximum(:ammount) %>
+     <%= area_chart @account.from_transactions.group(:date_opened).maximum(:ammount) %>
 
 
 <br>
@@ -101,4 +101,4 @@
 
 
 
-<%= link_to 'Delete Account', account_path , method: 'delete' %>
+<%#= link_to 'Delete Account', account_path , method: 'delete' %>

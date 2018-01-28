@@ -35,9 +35,6 @@ class TransactionsController < ApplicationController
 
         transaction = Transaction.create transaction_params
 
-        # temp_time = DateTime.now
-        # transaction.date_opened = temp_time.strftime("%d/%m/%Y")
-
 
         transaction.date_opened = DateTime.now
           # raise 'hell'
