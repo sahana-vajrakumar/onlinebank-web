@@ -31,15 +31,15 @@ puts "Created #{  Account.all.length } accounts."
 
 Transaction.destroy_all
 
-t1 = Transaction.create date_opened: '22/02/2017 01:46:33' , description: "Withdraw for shopping" , ammount: 20
+t1 = Transaction.create date_opened: '22/02/2007 01:46:33' , description: "Withdraw for shopping" , ammount: 20
 t2 = Transaction.create date_opened: '02/02/2008 09:00:33' , description: "Deposite" , ammount: 30
-t3 = Transaction.create date_opened: '02/01/2018 11:30:12' , description: "Credit" , ammount: 100
-t4 = Transaction.create date_opened: '08/01/2018 02:46:33' , description: "Withdraw" , ammount: 50
+t3 = Transaction.create date_opened: '02/01/2009 11:30:12' , description: "Credit" , ammount: 100
+t4 = Transaction.create date_opened: '08/01/2010 02:46:33' , description: "Withdraw" , ammount: 50
 t5 = Transaction.create date_opened: '15/01/2018 10:46:33' , description: "savings" , ammount: 25
-t6 = Transaction.create date_opened: '18/01/2018 05:46:33' , description: "Paying for bills" , ammount: 33
-t7 = Transaction.create date_opened: '22/01/2018 04:46:33' , description: "bills" , ammount: 56
-t8 = Transaction.create date_opened: '23/01/2018 03:46:33' , description: "Withdraw for shopping" , ammount: 72
-t9 = Transaction.create date_opened: '25/01/2018 02:46:33' , description: "Withdraw for holiday" , ammount: 82
+t6 = Transaction.create date_opened: '18/01/2011 05:46:33' , description: "Paying for bills" , ammount: 33
+t7 = Transaction.create date_opened: '22/01/2012 04:46:33' , description: "bills" , ammount: 56
+t8 = Transaction.create date_opened: '23/01/2013 03:46:33' , description: "Withdraw for shopping" , ammount: 72
+t9 = Transaction.create date_opened: '25/01/2014 02:46:33' , description: "Withdraw for holiday" , ammount: 82
 
 # binding.pry
 
@@ -78,3 +78,15 @@ t4.save
 t5.from_account = a3
 t5.to_account = a5
 t5.save
+t6.from_account = a2
+t6.to_account = a4
+t6.save
+t7.from_account = a2
+t7.to_account = a3
+t7.save
+t8.from_account = a2
+t8.to_account = a1
+t8.save
+t9.from_account = a2
+t9.to_account = a6
+t9.save
