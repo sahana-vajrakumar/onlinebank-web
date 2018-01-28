@@ -34,8 +34,15 @@ class TransactionsController < ApplicationController
         redirect_to root_path unless account.user = @current_user
 
         transaction = Transaction.create transaction_params
-        transaction.date_opened = Date.today
-      
+
+        # temp_time = DateTime.now
+        # transaction.date_opened = temp_time.strftime("%d/%m/%Y")
+
+
+        transaction.date_opened = DateTime.now
+          # raise 'hell'
+          transaction.save
+
 
 
 
@@ -79,7 +86,7 @@ private
 # "strong params" for the work form submit - only let through the fields
 # which we expect (i.e. the table fields the user is allowed to edit)
 def transaction_params
-  params.require(:transaction).permit( :ammount, :from_account_id, :to_account_id, :description )
+  params.require(:transaction).permit( :ammount, :from_account_id, :to_account_id, :description, :from_account_date_opened, :to_account_date_opened )
 end
 
 

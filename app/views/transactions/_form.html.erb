@@ -16,24 +16,24 @@
   <%= f.select :from_account_id,
       @current_user.accounts.map { |a| [a.accountnumber, a.id]  },
       selected: ( params[:type] == 'from' ? @account.id : nil ),
-      include_blank: true
+      include_blank: true, :class => "form-control"
   %>
 </fieldset>
 
 <fieldset>
   <%= f.label :to_account_id %>
-  <%= f.select :to_account_id, Account.includes(:user).order("users.name").map { |a| ["#{ a.user.name}: #{a.accountnumber}", a.id]  }, selected: ( params[:type] == 'to' ? @account.id : nil ), include_blank: true %>
+  <%= f.select :to_account_id, Account.includes(:user).order("users.name").map { |a| ["#{ a.user.name}: #{a.accountnumber}", a.id]  }, selected: ( params[:type] == 'to' ? @account.id : nil ), include_blank: true, :class => "form-control" %>
 </fieldset>
 
 
 <fieldset>
   <%= f.label :ammount %>
-  <%= f.text_field :ammount %>
+  <%= f.text_field :ammount, :class => "form-control" %>
 </fieldset>
 
 <fieldset>
   <%= f.label :description %>
-  <%= f.text_field :description %>
+  <%= f.text_field :description, :class => "form-control" %>
 </fieldset>
 
 

@@ -14,23 +14,42 @@
 
   <body>
     <div class="container">
-    <h1>Online Banking</h1>
-   <hr>
-   <nav>
+      <header class = "main">
+
+    <h2>Sydney Bank</h2>
+
      <% if @current_user.present? %>
+     <nav>
+
         <%= link_to @current_user.name , @current_user %>
         |
         <%= link_to 'Logout', login_path, method: :delete %>
      <% else %>
+     <div class="link">
        <%= link_to 'Login', login_path %>
-       
-       <p>New users <%= link_to 'SignUp', new_user_path %></p>
+       |
+
+
+        <%= link_to 'SignUp', new_user_path %>
+        </div>
+        </nav>
+
 
      <% end %>
+     </header>
 
 
-    </nav>
+
+
     <%= yield %>
+
+    <div class="footer">
+  <p>Footer</p>
+</div>
+
+
+
+
   </div>
   </body>
 </html>

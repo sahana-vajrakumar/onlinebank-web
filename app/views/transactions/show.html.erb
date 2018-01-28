@@ -1,11 +1,36 @@
 
 
+<!--
+<h4>Transaction History</h4>
 
-<p><strong>Transactions</strong>:</p>
-<ul>
-  <% .each do |t| %>
-    <li>
-      <%= t.ammount %>
-    </li>
-  <% end %>
-</ul>
+<button class="btn" data-toggle="collapse" data-target="#demo">Transaction</button>
+<div id="demo" class="collapse">
+<hr>
+<h5>From Transactions: </h5>
+
+
+<% @account.from_transactions.each do |transaction| %>
+
+
+<li>
+  <p class="bg-info"> Transaction date:<%= transaction.date_opened %> Transaction Ammount: <%= transaction.ammount %> ,  Description: <%= transaction.description %> </p>
+</li>
+    <% end %>
+    <hr>
+    <%= column_chart @account.from_transactions.group(:ammount, :date_opened).count %>
+
+<br>
+<hr>
+<h5>To Transactions: </h5>
+<%#= line_chart Account.group_by_day(:created_at).count %>
+
+<% @account.to_transactions.each do |transaction| %>
+
+<li>
+  <p class="bg-primary"> <%= transaction.date_opened %> , Transaction Ammount: <%= transaction.ammount %> ,  Description: <%= transaction.description %> </p>
+</li>
+    <% end %>
+    <hr>
+    <%= column_chart @account.to_transactions.group(:ammount, :date_opened).count %>
+</div>
+</div> -->

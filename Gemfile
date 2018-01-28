@@ -48,6 +48,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+gem 'groupdate' 
 gem 'chartkick'
 gem 'pry-rails'
 gem 'annotate'

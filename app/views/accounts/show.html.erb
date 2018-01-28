@@ -3,7 +3,7 @@
 
 
 
-<%#= bar_chart @account.balance %>
+
 </div>
 <h4>Account Information</h4>
 <hr>
@@ -13,45 +13,90 @@
 <p class="bg-danger">Current Balance: <%= @account.balance %></p>
 <p class="bg-danger">Account Created on : <%= @account.date_opened %></p>
 
-<br>
-<%= link_to 'Withdraw Funds', new_account_transaction_path( @account, type: :from ) %>
 
-<%= link_to 'Desposit Funds', new_account_transaction_path( @account, type: :to ) %>
+
+
+<br>
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Transfer Funds
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <div id = "fund">
+<%= link_to 'Withdraw', new_account_transaction_path( @account, type: :from ) %>
 
 <hr>
-<h4>Transaction History</h4>
+
+<%= link_to 'Desposit', new_account_transaction_path( @account, type: :to ) %>
+</div>
+</ul>
+</div>
+
+<hr>
 
 
+
+
+
+
+<button data-toggle="collapse" data-target="#demo">Transaction History</button>
+
+<div id="demo" class="collapse">
 
 <hr>
 <h5>From Transactions: </h5>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search" >
 
+<table id="myTable">
+  <tr class="header">
+    <th style="width:60%;">Date</th>
+    <th style="width:40%;">Amount</th>
+    <th style="width:40%;">Description</th>
+  </tr>
 <% @account.from_transactions.each do |transaction| %>
 
 
-<li>
-  <p class="bg-info"> <%= transaction.date_opened %> Transaction Ammount: <%= transaction.ammount %> ,  Description: <%= transaction.description %> </p>
-</li>
+
+  <tr>
+   <td><%= transaction.date_opened %></td> <td><%= transaction.ammount %></td>   <td><%= transaction.description %></td>
+
+
     <% end %>
+  </tr>
+ </table>
     <hr>
-    <%= bar_chart @account.from_transactions.group(:ammount).count %>
+
+
+    <%= area_chart @account.from_transactions.group(:date_opened).maximum(:ammount) %>
+
 
 <br>
 <hr>
 <h5>To Transactions: </h5>
+<%#= line_chart Account.group_by_day(:created_at).count %>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search" >
+
+<table id="myTable">
+  <tr class="header">
+    <th style="width:60%;">Date</th>
+    <th style="width:40%;">Amount</th>
+    <th style="width:40%;">Description</th>
+  </tr>
 
 <% @account.to_transactions.each do |transaction| %>
 
-<li>
-  <p class="bg-primary"> <%= transaction.date_opened %> Transaction Ammount: <%= transaction.ammount %> ,  Description: <%= transaction.description %> </p>
-</li>
+<tr>
+  <td> <%= transaction.date_opened %></td>  <td><%= transaction.ammount %></td>   <td><%= transaction.description %> </td>
+
     <% end %>
+  </tr>
+ </table>
     <hr>
-    <%= bar_chart @account.to_transactions.group(:ammount).count %>
+
+    <%= area_chart @account.to_transactions.group(:date_opened).maximum(:ammount) %>
+
 </div>
 
-
-
+</div>
 
 
 
