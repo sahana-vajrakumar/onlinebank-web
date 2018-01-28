@@ -1,3 +1,4 @@
+<br>
 <% if flash[:errors] %>
   <strong>Please correct the following errors:</strong>
   <ol>
@@ -19,11 +20,13 @@
       include_blank: true, :class => "form-control"
   %>
 </fieldset>
+<br>
 
 <fieldset>
   <%= f.label :to_account_id %>
   <%= f.select :to_account_id, Account.includes(:user).order("users.name").map { |a| ["#{ a.user.name}: #{a.accountnumber}", a.id]  }, selected: ( params[:type] == 'to' ? @account.id : nil ), include_blank: true, :class => "form-control" %>
 </fieldset>
+<br>
 
 
 <fieldset>
@@ -36,7 +39,7 @@
   <%= f.text_field :description, :class => "form-control" %>
 </fieldset>
 
-
+<br>
 
 
   <%= f.submit %>

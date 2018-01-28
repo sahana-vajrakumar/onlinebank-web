@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To access app visit: 'https://onlinebank-web.herokuapp.com/'
 
-Things you may want to cover:
+ Brief description: This app is a online banking website. It lets the user login/signup and view information such as accounts and personal info. User can also do transaction such as withdraw and deposit. The transaction will be reflected in transaction history. User can also view the graphical representation of his transactions based on amount and date. This app also has add account and delete account feature , which is not ideal for real world case. But I have added it just to get my hands on entire CRUD system.
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
 
-* Database creation
 
-* Database initialization
+Software used: Rails 4, Ruby 2.3.3, PostgreSQL. Jquery, Bootstrap,  Heroku and Highchart
 
-* How to run the test suite
+Hardware used: Apple Mac
 
-* Services (job queues, cache servers, search engines, etc.)
+Bugs and To do list.
 
-* Deployment instructions
+Home page is just for display. Only login and signup has functionality.
+Account balance can go to negative after transaction.
+search function not working for to_account transaction.
+Needs a more detailed graph
+Need to add CSS to make few pages, such as forms presentable.
 
-* ...
+Test user
+email: deepuhassan@gmail.com
+password:saanvi
+account: h45kn545

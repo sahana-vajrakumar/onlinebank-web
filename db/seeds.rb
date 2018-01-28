@@ -1,9 +1,9 @@
 User.destroy_all
 
-u1 = User.create email: 'sahankmr32@gmail.com' , name: 'sahana' , password: 'saanvi'
-u2 = User.create email: 'deepuhassan@gmail.com' , name: 'sandeep' , password: 'saanvi'
-u3 = User.create email: 'saanvi@gmail.com' , name: 'saanvi' , password: 'sannvi'
-u4 = User.create email: 'sachin@gmail.com' , name: 'sachin' , password: 'saanvi'
+u1 = User.create email: 'sahankmr32@gmail.com' , name: 'Sahana' , password: 'saanvi'
+u2 = User.create email: 'deepuhassan@gmail.com' , name: 'Sandeep' , password: 'saanvi'
+u3 = User.create email: 'saanvi@gmail.com' , name: 'Saanvi' , password: 'sannvi'
+u4 = User.create email: 'sachin@gmail.com' , name: 'Sachin' , password: 'saanvi'
 
 puts "Created #{  User.all.length } users."
 
@@ -37,8 +37,8 @@ t3 = Transaction.create date_opened: '02/01/2009 11:30:12' , description: "Credi
 t4 = Transaction.create date_opened: '08/01/2010 02:46:33' , description: "Withdraw" , ammount: 50
 t5 = Transaction.create date_opened: '15/01/2018 10:46:33' , description: "savings" , ammount: 25
 t6 = Transaction.create date_opened: '18/01/2011 05:46:33' , description: "Paying for bills" , ammount: 33
-t7 = Transaction.create date_opened: '22/01/2012 04:46:33' , description: "bills" , ammount: 56
-t8 = Transaction.create date_opened: '23/01/2013 03:46:33' , description: "Withdraw for shopping" , ammount: 72
+t7 = Transaction.create date_opened: '22/05/2012 04:46:33' , description: "bills" , ammount: 56
+t8 = Transaction.create date_opened: '23/08/2013 03:46:33' , description: "Withdraw for shopping" , ammount: 20
 t9 = Transaction.create date_opened: '25/01/2014 02:46:33' , description: "Withdraw for holiday" , ammount: 82
 
 # binding.pry

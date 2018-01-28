@@ -8,9 +8,9 @@
 <h4>Account Information</h4>
 <hr>
 <div class="col-xs-12 col-md-8">
-<p class="bg-danger">Account number:<%= @account.accountnumber %></p>
+<p class="bg-danger">Account number: <%= @account.accountnumber %></p>
 <p class="bg-danger">Account Type: <%= @account.account_type %></p>
-<p class="bg-danger">Current Balance: <%= @account.balance %></p>
+<p class="bg-danger">Current Balance: <%= @account.balance %>$</p>
 <p class="bg-danger">Account Created on : <%= @account.date_opened %></p>
 
 
@@ -57,7 +57,7 @@
 
 
   <tr>
-   <td><%= transaction.date_opened %></td> <td><%= transaction.ammount %></td>   <td><%= transaction.description %></td>
+   <td><%= transaction.date_opened %></td> <td><%= transaction.ammount %>$</td>   <td><%= transaction.description %></td>
 
 
     <% end %>
@@ -85,7 +85,7 @@
 <% @account.to_transactions.each do |transaction| %>
 
 <tr>
-  <td> <%= transaction.date_opened %></td>  <td><%= transaction.ammount %></td>   <td><%= transaction.description %> </td>
+  <td> <%= transaction.date_opened %></td>  <td><%= transaction.ammount %>$</td>   <td><%= transaction.description %> </td>
 
     <% end %>
   </tr>
