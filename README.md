@@ -8,15 +8,19 @@ To access app visit: 'https://onlinebank-web.herokuapp.com/'
 
 
 
-Software used: Rails 4, Ruby 2.3.3, PostgreSQL. Jquery, Bootstrap,  Heroku and Highchart
+Software used: Rails 4
+Ruby 2.3.3
+PostgreSQL
+Jquery
+Bootstrap
+Heroku for deploying the site
+Highchart for graphical representation of the transaction info.
 
-Hardware used: Apple Mac
+
 
 Bugs and To do list.
 
 Home page is just for display. Only login and signup has functionality.
-Account balance can go to negative after transaction.
-search function not working for to_account transaction.
 Needs a more detailed graph
 Need to add CSS to make few pages, such as forms presentable.
 
